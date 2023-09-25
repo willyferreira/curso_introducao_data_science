@@ -17,7 +17,7 @@ notas.columns = ['usuarioId', 'filmeId', 'nota', 'momento']
 notas.head()
 ```
 
-### Data Visualization
+#### Data Visualization
 Trabalhar gerando visualizações básicas usando bibliotecas como **Matplotlib** e **Seaborn**
 
 ```
@@ -43,3 +43,27 @@ plt.hist(medias_por_filme)
 plt.title('Histograma das médias dos filmes')
 ```
 ![Histograma da média dos filmes](https://github.com/willyferreira/curso_introducao_data_science/blob/abd4e0006fd804a4bed8af6fdaf14dbcf70e333e/images/histograma_medias_dos_filmes.png)
+
+```
+#criando gráfico com o dataframe
+sns.barplot(x='lingua', y='total', data= dados)
+```
+![Barplot com informação sobre idioma dos filmes](https://github.com/willyferreira/curso_introducao_data_science/blob/b0cd5e82568a0ff62d2cd3edf6c1015fc97bd7d6/images/barplot_linguagem.png)
+
+```
+#catplot
+sns.catplot(
+    x = 'original_language', kind = 'count', data = filmes_sem_lingua_original_em_ingles,
+    aspect = 2,
+    palette = 'GnBu_d',
+    order = total_por_lingua_de_outros_filmes.index)
+```
+![Catplot com informação sobre idioma dos filmes](https://github.com/willyferreira/curso_introducao_data_science/blob/b0cd5e82568a0ff62d2cd3edf6c1015fc97bd7d6/images/barplot_linguagem_original.png)
+
+#### Conceitos estatísticos
+Conceitos sobre média, mediana, desvio padrão, tendência central e dispersão, e como observar por meio de gráficos como boxplot e histograma.
+
+```
+sns.boxplot(x = "filmeId", y = "nota", data = notas.query("filmeId in [1,2,3,4,5]"))
+```
+![Boxplot Filmes ID 1 a 5](https://github.com/willyferreira/curso_introducao_data_science/blob/b0cd5e82568a0ff62d2cd3edf6c1015fc97bd7d6/images/boxplot_5filmes.png)
